@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://www.parsecdn.com/js/parse-1.2.1.min.js"></script>
+    <script>
+      (function() {
+        Parse.initialize('0S7MAOMdSUPRcKolXs3BNPV4asdO4dnS7elfK53C','r3EqOgzYMfVz5wQAPAsNL8nDGp8BwSkLjmR8PMsE');
+
+        var Collection = Parse.Collection.extend({
+          model: Vitals
+        });
+        var col = new Collection();
+
+        var Vitals = Parse.Object.extend('vitals');
+        var vitals = new Parse.Query(Vitals);
+        vitals.find({
+          success: function(results) {
+            for (var r in results) {
+              $('.data').append(results[r].attributes.weight+ '<br/>');
+              console.log(results[r]);
+            }
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="data"></div>
+  </body>
+</html>
