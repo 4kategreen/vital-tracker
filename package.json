@@ -1,0 +1,12 @@
+{
+	"name": "Vitals Tracker",
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/4kategreen/vital-tracker.git"
+  },
+	"devDependencies": {
+		"grunt" : "0.4.0",
+		"grunt-contrib-less": "0.5.0",
+		"grunt-contrib-jshint": "0.2.0"
+	}
+}
