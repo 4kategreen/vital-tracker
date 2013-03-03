@@ -6,33 +6,16 @@
     <link rel="stylesheet" href="css/vitals.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://www.parsecdn.com/js/parse-1.2.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+    <script src="app/lib/angular/angular.js"></script>
+    <script src="app/js/controllers.js"></script>
+    <script src="js/vitals.js"></script>
     <script>
-      (function() {
-        Parse.initialize('0S7MAOMdSUPRcKolXs3BNPV4asdO4dnS7elfK53C','r3EqOgzYMfVz5wQAPAsNL8nDGp8BwSkLjmR8PMsE');
-
-        var Collection = Parse.Collection.extend({
-          model: Vitals
-        });
-        var col = new Collection();
-
-        var Vitals = Parse.Object.extend('vitals');
-        var vitals = new Parse.Query(Vitals);
-        vitals.find({
-          success: function(results) {
-            for (var r in results) {
-              $('.data').append(results[r].attributes.weight+ '<br/>');
-              console.log(results[r]);
-            }
-          },
-          error: function(error) {
-            console.log(error);
-          }
-        });
-      })();
+      $(document).ready(function() {
+        parse();
+      });
     </script>
   </head>
-  <body>
+  <body ng-controller="VitalsCtrl">
     <div class="navbar navbar-inverse">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -43,7 +26,25 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span9">
-          <div class="data"></div>
+          <h1>{{title}}</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Weight</th>
+                <th>Fat %</th>
+                <th>RHR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="vital in vitals">
+                <td>{{vital.date}}</td>
+                <td>{{vital.weight}}</td>
+                <td>{{vital.fat}}%</td>
+                <td>{{vital.rhr}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="span3">
           <div class="well sidebar-nav">
