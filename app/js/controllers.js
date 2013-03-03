@@ -36,3 +36,21 @@ function VitalsCtrl($scope) {
 
  	//VitalsCtrl.$inject = ['$scope', '$routeParams'];
 }
+
+$scope.addTodo = function() {
+    var todo = new Todo();
+    todo.save({
+      text: $scope.todoText,
+      done: false
+    }, {
+      success: function(todoAgain) {
+        $scope.$apply(function() {
+          $scope.todos.push({text: todoAgain.get("text"), done: todoAgain.get("done"), parseObject: todoAgain});
+          $scope.todoText = "";
+        });
+      },
+      error: function(error) {
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });
+  };

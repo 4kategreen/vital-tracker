@@ -2,11 +2,12 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('vitals', ['vitals.filters', 'vitals.services', 'vitals.directives']).
+angular.module('vitals', []).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.
-    	when('/graph', {templateUrl: 'partials/graph.html'}).
-    	otherwise({redirectTo: '/', controller:VitalsCtrl});
+    	when('/', {templateUrl: 'app/partials/summary.html', controller: VitalsCtrl}).
+    	when('/graph', {templateUrl: 'app/partials/graph.html'}).
+    	otherwise({redirectTo: '/'});
   }]);
 
 
