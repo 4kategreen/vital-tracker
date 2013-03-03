@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
   <head>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.css" />
+    <link rel="stylesheet" href="css/vitals.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://www.parsecdn.com/js/parse-1.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
     <script>
       (function() {
         Parse.initialize('0S7MAOMdSUPRcKolXs3BNPV4asdO4dnS7elfK53C','r3EqOgzYMfVz5wQAPAsNL8nDGp8BwSkLjmR8PMsE');
@@ -29,6 +33,32 @@
     </script>
   </head>
   <body>
-    <div class="data"></div>
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="#">Vitals Tracker</a>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span9">
+          <div class="data"></div>
+        </div>
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Header</li>
+              <li>x</li>
+              <li>y</li>
+              <li>z</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <p>kategreen.us</p>
+      </footer>
+    </div>
   </body>
 </html>
