@@ -8,11 +8,13 @@ function VitalsCtrl($scope) {
 	function getVitals() {
 		var vitals = new Parse.Query(Vitals);
 		vitals.ascending('date');
+		vitals.limit(14);
 	  vitals.find({
 	    success: function(results) {
 	      $scope.$apply(function() {
 	      	$scope.vitals = results.map(function(obj) {
 	      		return {
+	      			id: obj.get('objectId'),
 	      			weight: obj.get('weight'),
 	      			fat: obj.get('fat'),
 	      			date: parseDate(obj.get('date')),
@@ -29,9 +31,8 @@ function VitalsCtrl($scope) {
 	function parseDate(d) {
 		var date = new Date(d);
 		return ((date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear());
-
-		//{"__type":"Date","iso":"2013-03-01T20:26:00.000Z"}
 	}
 	getVitals();
-	$scope.title = 'Vitals';
+
+ 	//VitalsCtrl.$inject = ['$scope', '$routeParams'];
 }
