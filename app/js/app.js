@@ -7,14 +7,6 @@ angular.module('vitals', []).
     $routeProvider.
     	when('/', {templateUrl: 'app/partials/summary.html', controller: VitalsCtrl}).
     	when('/graph', {templateUrl: 'app/partials/graph.html'}).
+    	when('/vital/:vitalId', {templateUrl: 'app/partials/vital.html', controller: VitalEditCtrl}).
     	otherwise({redirectTo: '/'});
   }]);
-
-
-angular.module('phonecat', []).
-  config(['$routeProvider', function($routeProvider) {
-  $routeProvider.
-      when('/phones', {templateUrl: 'partials/phone-list.html',   controller: PhoneListCtrl}).
-      when('/phones/:phoneId', {templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl}).
-      otherwise({redirectTo: '/phones'});
-}]);

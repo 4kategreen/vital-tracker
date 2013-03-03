@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="vitals">
+<html lang="en" ng-app="vitals" ng-controller="VitalsCtrl">
   <head>
+    <title ng-bind-template:"{{title}}">Vitals Tracker</title>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/bootstrap-responsive.css" />
@@ -18,11 +19,11 @@
       });
     </script>
   </head>
-  <body ng-controller="VitalsCtrl">
+  <body>
     <div class="navbar navbar-inverse">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <a class="brand" href="#">Vitals Tracker</a>
+          <a class="brand" href="#">{{title}}</a>
         </div>
       </div>
     </div>

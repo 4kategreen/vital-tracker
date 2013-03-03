@@ -3,7 +3,7 @@ Parse.initialize('0S7MAOMdSUPRcKolXs3BNPV4asdO4dnS7elfK53C','r3EqOgzYMfVz5wQAPAs
 var Vitals = Parse.Object.extend('vitals');
 
 /* Controllers */
-function VitalsCtrl($scope) {
+function VitalsCtrl($scope,$routeParams) {
 
 	function getVitals() {
 		var vitals = new Parse.Query(Vitals);
@@ -14,7 +14,7 @@ function VitalsCtrl($scope) {
 	      $scope.$apply(function() {
 	      	$scope.vitals = results.map(function(obj) {
 	      		return {
-	      			id: obj.get('objectId'),
+	      			id: obj.id,
 	      			weight: obj.get('weight'),
 	      			fat: obj.get('fat'),
 	      			date: parseDate(obj.get('date')),
@@ -32,21 +32,25 @@ function VitalsCtrl($scope) {
 		var date = new Date(d);
 		return ((date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear());
 	}
+	$scope.vitals = new Object();
 	getVitals();
 
- 	//VitalsCtrl.$inject = ['$scope', '$routeParams'];
-}
+	$scope.title = "Vitals Tracker";
 
-$scope.addTodo = function() {
-    var todo = new Todo();
-    todo.save({
-      text: $scope.todoText,
-      done: false
+	$scope.addTodo = function() {
+    var vital = new Vitals();
+    vital.save({
+    	date: $scope.date,
+      weight: $scope.weight,
+      fat: $scope.fat,
+      rhr: $scope.rhr
     }, {
       success: function(todoAgain) {
         $scope.$apply(function() {
-          $scope.todos.push({text: todoAgain.get("text"), done: todoAgain.get("done"), parseObject: todoAgain});
-          $scope.todoText = "";
+          $scope.date = '';
+          $scope.weight = '';
+          $scope.fat = '';
+          $scope.rhr = '';
         });
       },
       error: function(error) {
@@ -54,3 +58,11 @@ $scope.addTodo = function() {
       }
     });
   };
+
+  //VitalsCtrl.$inject = ['$scope', '$routeParams'];
+}
+
+function VitalEditCtrl($scope, $routeParams) {
+	console.log($routeParams);
+	$scope.vitalId = $routeParams.vitalId;
+}
