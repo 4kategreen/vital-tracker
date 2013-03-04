@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     less: {
-    	'bootstrap': {
+    	bootstrap: {
 		  	options: {
 		      paths: ["bootstrap/less"]
 		    },
@@ -10,14 +10,14 @@ module.exports = function(grunt) {
 		      "css/bootstrap.css": "bootstrap/less/bootstrap.less",
 		      "css/bootstrap-responsive.css": "bootstrap/less/responsive.less"
 		    },
-		    'vitals': {
-		    	options: {
-		    		paths: ["less"]
-		    	},
-		    	files: {
-		    		"css/vitals.css": "less/vitals.less",
-		    	}
-		    }
+      },
+		  vitals: {
+	    	options: {
+	    		paths: ["less"]
+	    	},
+	    	files: {
+	    		"css/vitals.css": "less/vitals.less",
+	    	}
 		  }
     },
     jshint: {
