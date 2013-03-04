@@ -7,8 +7,8 @@ function VitalsCtrl($scope,$routeParams) {
 
 	function getVitals() {
 		var vitals = new Parse.Query(Vitals);
-		vitals.ascending('date');
-		vitals.limit(getThisWeek());
+		vitals.descending('date');
+    vitals.greaterThan("date",getRecent());
 	  vitals.find({
 	    success: function(results) {
 	      $scope.$apply(function() {
@@ -30,7 +30,6 @@ function VitalsCtrl($scope,$routeParams) {
 	}
 	$scope.vitals = new Object();
 	getVitals();
-  getThisWeek();
 
 	$scope.title = "Vitals Tracker";
 
@@ -83,9 +82,11 @@ function parseDate(d) {
 	var date = new Date(d);
 	return (days[date.getDay()] + ' ' + (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear());
 }
-function getThisWeek() {
+function getRecent() {
   var date = new Date();
   var dayOfWeek = date.getDay();
+  var dayOfMonth = date.getDate();
   // send 7 results if today is Sunday, otherwise getDay() returns correct number
-  return 7 + ((dayOfWeek == 0) ? 7 : dayOfWeek);
+  var daysBetween = 7 + (dayOfWeek == 0 ? 7 : dayOfWeek);
+  return new Date(date.setDate(dayOfMonth - daysBetween));
 }
