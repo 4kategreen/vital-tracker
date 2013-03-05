@@ -18,6 +18,7 @@ function VitalsCtrl($scope,$routeParams) {
 	      			weight: obj.get('weight'),
 	      			fat: obj.get('fat'),
 	      			date: parseDate(obj.get('date')),
+              day: new Date(obj.get('date')).getDay(),
 	      			rhr: obj.get('rhr')
 	      		}
 	      	});

@@ -16,11 +16,11 @@
         </thead>
         <tbody>
           <tr ng-repeat="vital in vitals">
-            <td><a href="#/vital/{{vital.id}}">Edit</a></td>
-            <td class="date">{{vital.date}}</td>
-            <td class="weight">{{vital.weight}}</td>
-            <td class="fat">{{vital.fat}}%</td>
-            <td class="rhr">{{vital.rhr}}</td>
+            <td ng-class="{sunday: {{vital.day}}==0}"><a href="#/vital/{{vital.id}}">Edit</a></td>
+            <td class="date" ng-class="{sunday: {{vital.day}}==0}">{{vital.date}}</td>
+            <td class="weight" ng-class="{sunday: {{vital.day}}==0}">{{vital.weight}}</td>
+            <td class="fat" ng-class="{sunday: {{vital.day}}==0}">{{vital.fat}}%</td>
+            <td class="rhr" ng-class="{sunday: {{vital.day}}==0}">{{vital.rhr}}</td>
           </tr>
         </tbody>
       </table>

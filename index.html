@@ -36,7 +36,6 @@
   $(document).ready(function() {
     // summary.html view
     $('input[name=date]').datepicker();
-    console.log($('td').length);
     
     $('td.date').each(function() {
       if ($(this).text().search('/Sun/') !== -1) {
