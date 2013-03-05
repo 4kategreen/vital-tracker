@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/bootstrap-responsive.css" />
     <link rel="stylesheet" href="css/vitals.css" />
-    
+
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>
     <script src="http://www.parsecdn.com/js/parse-1.2.1.min.js"></script>
@@ -17,11 +17,6 @@
     <script src="app/js/app.js"></script>
     <script src="app/js/controllers.js"></script>
     <script src="js/vitals.js"></script>
-    <script>
-      $(document).ready(function() {
-        $('input[name=date]').datepicker();
-      });
-    </script>
   </head>
   <body>
     <div class="navbar navbar-inverse">
@@ -31,6 +26,12 @@
         </div>
       </div>
     </div>
-    <div ng-view></div>
+    <div class="container-fluid">
+      <div ng-view></div>
+      <hr />
+      <footer>
+        <p class="muted">kategreen.us</p>
+      </footer>
+    </div>
   </body>
 </html>

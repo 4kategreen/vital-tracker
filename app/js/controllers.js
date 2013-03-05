@@ -33,20 +33,21 @@ function VitalsCtrl($scope,$routeParams) {
 
 	$scope.title = "Vitals Tracker";
 
-	$scope.addVital = function() {
+	$scope.addVital = function(v) {
+		console.log(v);exit;
     var vital = new Vitals();
     vital.save({
-    	date: $scope.date,
-      weight: $scope.weight,
-      fat: $scope.fat,
-      rhr: $scope.rhr
+    	date: v.date,
+      weight: v.weight,
+      fat: v.fat,
+      rhr: v.rhr
     }, {
-      success: function(todoAgain) {
+      success: function() {
         $scope.$apply(function() {
-          $scope.date = '';
-          $scope.weight = '';
-          $scope.fat = '';
-          $scope.rhr = '';
+          v.date = '';
+          v.weight = '';
+          v.fat = '';
+          v.rhr = '';
         });
       },
       error: function(error) {
