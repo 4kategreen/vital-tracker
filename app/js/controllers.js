@@ -55,6 +55,10 @@ function VitalsCtrl($scope,$routeParams) {
     });
   };
 
+  $scope.templates = [
+    {name: 'addVitals.html', url: 'app/partials/addVitals.html'}
+  ]
+
   //VitalsCtrl.$inject = ['$scope', '$routeParams'];
 }
 
