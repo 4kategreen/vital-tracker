@@ -59,6 +59,7 @@ function VitalsCtrl($scope,$routeParams) {
   $scope.templates = [
     {name: 'addVitals.html', url: 'app/partials/addVitals.html'}
   ]
+  $scope.template = $scope.templates[0];
 
   //VitalsCtrl.$inject = ['$scope', '$routeParams'];
 }
