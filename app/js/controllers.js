@@ -35,14 +35,16 @@ function VitalsCtrl($scope,$routeParams) {
 	$scope.title = "Vitals Tracker";
 
 	$scope.addVital = function() {
+    console.log($scope);
     var vital = new Vitals();
-    vital.save({
-    	date: $scope.date,
-      weight: $scope.weight,
-      fat: $scope.fat,
-      rhr: $scope.rhr
-    }, {
-      success: function(todoAgain) {
+
+    vital.set('date',$scope.date);
+    vital.set('weight',$scope.weight);
+    vital.set('fat',$scope.fat);
+    vital.set('rhr',$scope.rhr);
+
+    vital.save(null, {
+      success: function() {
         $scope.$apply(function() {
           $scope.date = '';
           $scope.weight = '';
@@ -58,7 +60,7 @@ function VitalsCtrl($scope,$routeParams) {
 
   $scope.templates = [
     {name: 'addVitals.html', url: 'app/partials/addVitals.html'}
-  ]
+  ];
   $scope.template = $scope.templates[0];
 
   //VitalsCtrl.$inject = ['$scope', '$routeParams'];

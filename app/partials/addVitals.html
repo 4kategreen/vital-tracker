@@ -1,15 +1,20 @@
-<div class="well add-vitals">
+<div class="well add-vitals" ng-controller="VitalsCtrl">
   <h2>Add More Vitals</h2>
   <form action="" method="post">
     <label for="date">Date</label>
-      <input type="text" name="date" placeholder="mm/dd/yyyy" />
+    <input type="text" class="datepicker" ng-model="date" placeholder="mm/dd/yyyy" />
     <label for="weight">Weight</label>
-    <input type="text" name="weight" placeholder="Today's Weight" />
+    <input type="text" ng-model="weight" placeholder="Today's Weight" />
     <label for="fat">Fat Percentage</label>
-    <input type="text" name="fat" placeholder="Today's Fat" />
+    <input type="text" ng-model="fat" placeholder="Today's Fat" />
     <label for="rhr">Resting Heart Rate</label>
-    <input type="text" name="rhr" placeholder="RHR" />
+    <input type="text" ng-model="rhr" placeholder="RHR" />
 
-    <button type="submit" class="btn">Submit</button>
+    <button type="submit" class="btn" ng-click="addVital()">Submit</button>
   </form>
 </div>
+<script>
+  $(document).ready(function() {
+    $('.datepicker').datepicker();
+  });
+</script>
