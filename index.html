@@ -21,10 +21,10 @@
     </div>
     <div class="container-fluid">
       <div ng-view></div>
-      <hr/>
+      <hr />
       <footer>
-        <p class="muted">Kate Green</p>
-      </footer>
+        <p class="muted">kate@kategreen.us</p>
+      <footer>
     </div>
 
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -33,16 +33,5 @@
     <script src="app/lib/angular/angular.js"></script>
     <script src="app/js/app.js"></script>
     <script src="app/js/controllers.js"></script>
-    <script>
-    $(document).ready(function() {
-      console.log('anything');
-      // summary.html view
-      $('input[name=date]').datepicker();
-      
-      if ($('td.date').text().search('/^Sun/') !== -1) {
-        $('td.date').siblings().addClass('sunday');
-      }
-    });
-    </script>
   </body>
 </html>

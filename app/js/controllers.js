@@ -18,6 +18,7 @@ function VitalsCtrl($scope,$routeParams) {
 	      			weight: obj.get('weight'),
 	      			fat: obj.get('fat'),
 	      			date: parseDate(obj.get('date')),
+              day: new Date(obj.get('date')).getDay(),
 	      			rhr: obj.get('rhr')
 	      		}
 	      	});
@@ -33,15 +34,16 @@ function VitalsCtrl($scope,$routeParams) {
 
 	$scope.title = "Vitals Tracker";
 
-	$scope.addVital = function(v) {
-		console.log(v);exit;
+	$scope.addVital = function() {
+    console.log($scope);
     var vital = new Vitals();
-    vital.save({
-    	date: v.date,
-      weight: v.weight,
-      fat: v.fat,
-      rhr: v.rhr
-    }, {
+
+    vital.set('date',$scope.date);
+    vital.set('weight',$scope.weight);
+    vital.set('fat',$scope.fat);
+    vital.set('rhr',$scope.rhr);
+
+    vital.save(null, {
       success: function() {
         $scope.$apply(function() {
           v.date = '';
@@ -55,6 +57,11 @@ function VitalsCtrl($scope,$routeParams) {
       }
     });
   };
+
+  $scope.templates = [
+    {name: 'addVitals.html', url: 'app/partials/addVitals.html'}
+  ];
+  $scope.template = $scope.templates[0];
 
   //VitalsCtrl.$inject = ['$scope', '$routeParams'];
 }

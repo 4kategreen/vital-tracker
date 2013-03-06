@@ -16,34 +16,16 @@
         </thead>
         <tbody>
           <tr ng-repeat="vital in vitals">
-            <td><a href="#/vital/{{vital.id}}">Edit</a></td>
-            <td class="date">{{vital.date}}</td>
-            <td class="weight">{{vital.weight}}</td>
-            <td class="fat">{{vital.fat}}%</td>
-            <td class="rhr">{{vital.rhr}}</td>
+            <td ng-class="{sunday: {{vital.day}}==0}"><a href="#/vital/{{vital.id}}">Edit</a></td>
+            <td class="date" ng-class="{sunday: {{vital.day}}==0}">{{vital.date}}</td>
+            <td class="weight" ng-class="{sunday: {{vital.day}}==0}">{{vital.weight}}</td>
+            <td class="fat" ng-class="{sunday: {{vital.day}}==0}">{{vital.fat}}%</td>
+            <td class="rhr" ng-class="{sunday: {{vital.day}}==0}">{{vital.rhr}}</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="span3">
-      <div class="well">
-        <h2>Add More Vitals</h2>
-        <form action="" method="post">
-          <label for="date">Date</label>
-          <input type="text" ng-model="date" placeholder="mm/dd/yyyy" />
-          <label for="weight">Weight</label>
-          <input type="text" ng-model="weight" placeholder="Today's Weight" />
-          <label for="fat">Fat Percentage</label>
-          <input type="text" ng-model="fat" placeholder="Today's Fat" />
-          <label for="rhr">Resting Heart Rate</label>
-          <input type="text" ng-model="rhr" placeholder="RHR" />
-
-          <button type="submit" class="btn" ng-click="addVital()">Submit</button>
-        </form>
-      </div>
+      <div ng-include src="template.url"></div>
     </div>
   </div>
-<script>
-  $(document).ready(function() {
-    $('input[ng-model=date]').datepicker();
-  });
