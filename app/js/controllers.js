@@ -37,12 +37,9 @@ function VitalsCtrl($scope,$routeParams) {
 	$scope.addVital = function() {
     console.log($scope);
     var vital = new Vitals();
-    console.log($scope.date);
-    console.log($scope.weight);
-    return;
 
     vital.save({
-    	date: $scope.date,
+    	date: new Date($scope.date),
     	weight: parseInt($scope.weight),
     	fat: parseInt($scope.fat),
     	rhr: parseInt($scope.rhr)

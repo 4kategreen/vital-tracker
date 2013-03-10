@@ -2,7 +2,7 @@
   <h2>Add More Vitals</h2>
   <form action="" method="post">
     <label for="date">Date</label>
-    <input type="text" class="datepicker" ng-model="date" placeholder="mm/dd/yyyy" />
+    <input type="text" datepicker ng-model="date" placeholder="mm/dd/yyyy" />
     <label for="weight">Weight</label>
     <input type="text" ng-model="weight" placeholder="Today's Weight" />
     <label for="fat">Fat Percentage</label>
@@ -15,6 +15,6 @@
 </div>
 <script>
   $(document).ready(function() {
-    $('.datepicker').datepicker();
+    //$('.datepicker').datepicker();
   });
 </script>

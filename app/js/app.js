@@ -2,7 +2,7 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('vitals', []).
+angular.module('vitals', ['vitals.directives']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.
     	when('/', {templateUrl: 'app/partials/summary.html', controller: VitalsCtrl}).
