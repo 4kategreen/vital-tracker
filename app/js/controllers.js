@@ -80,6 +80,10 @@ function VitalEditCtrl($scope, $routeParams) {
 	});
 }
 
+function FitbitCtrl($scope, $routeParams) {
+
+}
+
 var parseDate = function(d) {
   var days = ['Sun','Mon','Tues','Wed','Thurs','Fri','Sat','Sun'];
 	var date = new Date(d);
