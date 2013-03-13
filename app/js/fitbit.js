@@ -3,5 +3,6 @@ var Fitbit = {
   consumerSecret: 'a334c5c371b34f4eb506595eedefee3a',
   requestTokenURL: 'http://api.fitbit.com/oauth/request_token',
   accessTokenURL: 'http://api.fitbit.com/oauth/access_token',
-  authorizeURL: 'http://www.fitbit.com/oauth/authorize'
+  authorizeURL: 'http://www.fitbit.com/oauth/authorize',
+  userID: '257DKD'
 }
