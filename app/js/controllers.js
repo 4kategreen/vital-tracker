@@ -5,7 +5,7 @@ var Vitals = Parse.Object.extend('vitals');
 /* Controllers */
 function VitalsCtrl($scope,$routeParams) {
 
-	function getVitals() {
+	var getVitals = function() {
 		var vitals = new Parse.Query(Vitals);
 		vitals.descending('date');
     vitals.greaterThan("date",getRecent());
@@ -80,12 +80,12 @@ function VitalEditCtrl($scope, $routeParams) {
 	});
 }
 
-function parseDate(d) {
+var parseDate = function(d) {
   var days = ['Sun','Mon','Tues','Wed','Thurs','Fri','Sat','Sun'];
 	var date = new Date(d);
 	return (days[date.getDay()] + ' ' + (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear());
 }
-function getRecent() {
+var getRecent = function() {
   var date = new Date();
   var dayOfWeek = date.getDay();
   var dayOfMonth = date.getDate();
